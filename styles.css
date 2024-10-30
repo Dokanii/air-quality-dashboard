@@ -1,0 +1,90 @@
+/* Reset default margin and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+}
+
+/* Sidebar styling with gradient background */
+.sidebar {
+    width: 200px;
+    height: 100vh;
+    background: linear-gradient(180deg, #1e3a8a, #00e5ff); /* Cyan to blue gradient */
+    color: #fff;
+    position: fixed;
+    transition: width 0.3s ease;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    width: 100%;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #fff;
+    padding: 15px;
+    text-align: left;
+    display: block;
+    transition: background 0.3s;
+    width: 100%;
+    font-weight: bold;
+}
+
+.sidebar a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Slightly transparent white on hover */
+}
+
+/* Toggle button styling (unchanged) */
+.toggle-btn {
+    background-color: #2563eb; /* Lighter blue */
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 18px;
+    margin: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.toggle-btn:hover {
+    background-color: #1e40af; /* Darker blue on hover */
+    transform: scale(1.05);
+}
+
+/* Content styling */
+.content {
+    margin-left: 200px;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+    width: 100%;
+}
+
+/* Collapsed styles */
+.sidebar.collapsed {
+    width: 50px;
+}
+
+.sidebar.collapsed .toggle-btn {
+    margin-left: 5px;
+}
+
+.sidebar.collapsed nav a {
+    display: none;
+}
+
+.content.collapsed {
+    margin-left: 50px;
+}
