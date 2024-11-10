@@ -44,41 +44,87 @@ function testAPIConnection() {
         });
 }
 
-// Function to display the weather data on the webpage
+// Function to display the weather data on the webpage in a dashboard format
 function displayWeatherData(data) {
     const content = document.querySelector(".content");
     content.innerHTML = `
-        <h2>Current Weather Data</h2>
-        <p><strong>Temperature:</strong> ${(data.current.temp - 273.15).toFixed(2)} °C</p>
-        <p><strong>Feels Like:</strong> ${(data.current.feels_like - 273.15).toFixed(2)} °C</p>
-        <p><strong>Humidity:</strong> ${data.current.humidity}%</p>
-        <p><strong>Pressure:</strong> ${data.current.pressure} hPa</p>
-        <p><strong>Visibility:</strong> ${data.current.visibility} meters</p>
-        <p><strong>Wind Speed:</strong> ${data.current.wind_speed} m/s</p>
-        <p><strong>Wind Direction:</strong> ${data.current.wind_deg}°</p>
-        <p><strong>Cloudiness:</strong> ${data.current.clouds}%</p>
-        <p><strong>Dew Point:</strong> ${(data.current.dew_point - 273.15).toFixed(2)} °C</p>
-        <p><strong>UV Index:</strong> ${data.current.uvi}</p>
-        <p><strong>Weather:</strong> ${data.current.weather[0].main} - ${data.current.weather[0].description}</p>
-        <img src="https://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png" alt="Weather icon">
-        <p><strong>Sunrise:</strong> ${new Date(data.current.sunrise * 1000).toLocaleTimeString()}</p>
-        <p><strong>Sunset:</strong> ${new Date(data.current.sunset * 1000).toLocaleTimeString()}</p>
+        <div class="dashboard-container">
+            <div class="dashboard-header">
+                <h2>Weather Dashboard</h2>
+            </div>
+            <div class="dashboard-cards">
+                <div class="card">
+                    <h3>Temperature</h3>
+                    <p>${(data.current.temp - 273.15).toFixed(2)} °C</p>
+                </div>
+                <div class="card">
+                    <h3>Feels Like</h3>
+                    <p>${(data.current.feels_like - 273.15).toFixed(2)} °C</p>
+                </div>
+                <div class="card">
+                    <h3>Humidity</h3>
+                    <p>${data.current.humidity}%</p>
+                </div>
+                <div class="card">
+                    <h3>Pressure</h3>
+                    <p>${data.current.pressure} hPa</p>
+                </div>
+                <div class="card">
+                    <h3>Wind Speed</h3>
+                    <p>${data.current.wind_speed} m/s</p>
+                </div>
+                <div class="card">
+                    <h3>Wind Direction</h3>
+                    <p>${data.current.wind_deg}°</p>
+                </div>
+            </div>
+        </div>
     `;
 }
 
-// Function to display the air quality data on the webpage
+// Function to display the air quality data on the webpage in a dashboard format
 function displayAirQualityData(data) {
     const content = document.querySelector(".content");
     content.innerHTML += `
-        <h2>Current Air Quality Data</h2>
-        <p><strong>PM2.5:</strong> ${data.list[0].components.pm2_5} µg/m³</p>
-        <p><strong>PM10:</strong> ${data.list[0].components.pm10} µg/m³</p>
-        <p><strong>NOx (NO):</strong> ${data.list[0].components.no} ppb</p>
-        <p><strong>NO2:</strong> ${data.list[0].components.no2} ppb</p>
-        <p><strong>NH3:</strong> ${data.list[0].components.nh3} ppb</p>
-        <p><strong>CO:</strong> ${data.list[0].components.co} ppm</p>
-        <p><strong>SO2:</strong> ${data.list[0].components.so2} ppb</p>
-        <p><strong>O3:</strong> ${data.list[0].components.o3} ppb</p>
+        <div class="dashboard-container">
+            <div class="dashboard-header">
+                <h2>Air Quality Dashboard</h2>
+            </div>
+            <div class="dashboard-cards">
+                <div class="card">
+                    <h3>PM2.5</h3>
+                    <p>${data.list[0].components.pm2_5} µg/m³</p>
+                </div>
+                <div class="card">
+                    <h3>PM10</h3>
+                    <p>${data.list[0].components.pm10} µg/m³</p>
+                </div>
+                <div class="card">
+                    <h3>NOx (NO)</h3>
+                    <p>${data.list[0].components.no} ppb</p>
+                </div>
+                <div class="card">
+                    <h3>NO2</h3>
+                    <p>${data.list[0].components.no2} ppb</p>
+                </div>
+                <div class="card">
+                    <h3>NH3</h3>
+                    <p>${data.list[0].components.nh3} ppb</p>
+                </div>
+                <div class="card">
+                    <h3>CO</h3>
+                    <p>${data.list[0].components.co} ppm</p>
+                </div>
+                <div class="card">
+                    <h3>SO2</h3>
+                    <p>${data.list[0].components.so2} ppb</p>
+                </div>
+                <div class="card">
+                    <h3>O3</h3>
+                    <p>${data.list[0].components.o3} ppb</p>
+                </div>
+            </div>
+        </div>
     `;
 }
 
