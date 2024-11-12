@@ -8,7 +8,8 @@
 body {
     font-family: Arial, sans-serif;
     display: flex;
-    background-color: #f0f4f8;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* Sidebar styling with gradient background */
@@ -18,11 +19,14 @@ body {
     background: linear-gradient(180deg, #1e3a8a, #00e5ff); /* Cyan to blue gradient */
     color: #fff;
     position: fixed;
+    top: 0;
+    left: 0;
     transition: width 0.3s ease;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     align-items: center;
+    z-index: 2;
 }
 
 .sidebar nav {
@@ -70,7 +74,8 @@ body {
     margin-left: 200px;
     padding: 20px;
     transition: margin-left 0.3s ease;
-    width: 100%;
+    width: calc(100% - 200px);
+    flex-grow: 1;
 }
 
 /* Collapsed styles */
@@ -88,6 +93,7 @@ body {
 
 .content.collapsed {
     margin-left: 50px;
+    width: calc(100% - 50px);
 }
 
 /* Dashboard container styling */
@@ -99,10 +105,18 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.dashboard-header {
+.main-dashboard-header {
+    padding: 20px;
+    background: #1e3a8a;
+    color: white;
     text-align: center;
-    margin-bottom: 20px;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    top: 0;
+    z-index: 1;
 }
+
 
 .dashboard-cards {
     display: flex;
@@ -124,4 +138,29 @@ body {
 
 .card:hover {
     transform: scale(1.05);
+}
+
+/* Adjust content margin to account for fixed header */
+.content {
+    margin-top: 160px; /* Increase margin-top to prevent overlap with the header */
+    margin-left: 200px; /* Add margin-left to account for the sidebar */
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+    width: calc(100% - 200px);
+    flex-grow: 1;
+}
+
+
+/* Footer styling */
+.dashboard-footer {
+    padding: 20px;
+    background: #00e5ff; /* Solid cyan background */
+    color: white;
+    text-align: center;
+    margin-top: auto;
+    width: 100%;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    bottom: 0;
+    z-index: 1;
 }

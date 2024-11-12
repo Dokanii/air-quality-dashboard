@@ -5,10 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Air Quality Dashboard</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="app.js"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="app.js" defer></script>
 </head>
 <body>
+    <header class="main-dashboard-header">
+        <h1>Air Quality Monitoring Dashboard</h1>
+        <p>Real-time data on weather and air quality</p>
+    </header>
+    
     <div class="sidebar" id="sidebar">
         <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
         <nav>
@@ -17,7 +22,14 @@
             <a href="#about">About</a>
         </nav>
     </div>
+    
     <div class="content">
+        <!-- Weather and air quality data will be dynamically added here by JavaScript -->
     </div>
+    
+    <footer class="dashboard-footer">
+        <p>&copy; 2024 Air Quality Monitoring Dashboard. All rights reserved.</p>
+        <p>Data provided by OpenWeather API.</p>
+    </footer>
 </body>
 </html>
