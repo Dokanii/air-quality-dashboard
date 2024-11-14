@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data - Air Quality Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="data_dashboard.js" defer></script>
+</head>
+<body>
+    <header class="main-dashboard-header">
+        <h1>Data Overview</h1>
+        <p>Detailed weather and air quality data</p>
+    </header>
+    
+    <div class="sidebar" id="sidebar">
+        <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="data_dashboard.html">Data</a>
+            <a href="#about">About</a>
+        </nav>        
+    </div>
+    
+    <div class="content" id="content">
+        <div class="dashboard-container">
+            <div class="dashboard-header">
+                <h2>Weather Dashboard</h2>
+            </div>
+            <div class="dashboard-cards">
+                <div class="card">
+                    <h3>Temperature</h3>
+                    <p id="temperature"></p>
+                </div>
+                <div class="card">
+                    <h3>Feels Like</h3>
+                    <p id="feels_like"></p>
+                </div>
+                <div class="card">
+                    <h3>Humidity</h3>
+                    <p id="humidity"></p>
+                </div>
+                <div class="card">
+                    <h3>Pressure</h3>
+                    <p id="pressure"></p>
+                </div>
+                <div class="card">
+                    <h3>Wind Speed</h3>
+                    <p id="wind_speed"></p>
+                </div>
+                <div class="card">
+                    <h3>Wind Direction</h3>
+                    <p id="wind_deg"></p>
+                </div>
+            </div>
+        </div>
+        <div class="dashboard-container">
+            <div class="dashboard-header">
+                <h2>Air Quality Dashboard</h2>
+            </div>
+            <div class="dashboard-cards">
+                <div class="card">
+                    <h3>PM2.5</h3>
+                    <p id="pm25"></p>
+                </div>
+                <div class="card">
+                    <h3>PM10</h3>
+                    <p id="pm10"></p>
+                </div>
+                <div class="card">
+                    <h3>NOx (NO)</h3>
+                    <p id="nox"></p>
+                </div>
+                <div class="card">
+                    <h3>NO2</h3>
+                    <p id="no2"></p>
+                </div>
+                <div class="card">
+                    <h3>NH3</h3>
+                    <p id="nh3"></p>
+                </div>
+                <div class="card">
+                    <h3>CO</h3>
+                    <p id="co"></p>
+                </div>
+                <div class="card">
+                    <h3>SO2</h3>
+                    <p id="so2"></p>
+                </div>
+                <div class="card">
+                    <h3>O3</h3>
+                    <p id="o3"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="dashboard-footer">
+        <p>&copy; 2024 Air Quality Monitoring Dashboard. All rights reserved.</p>
+        <p>Data provided by OpenWeather API.</p>
+    </footer>
+</body>
+</html>

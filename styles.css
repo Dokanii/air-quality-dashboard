@@ -112,11 +112,10 @@ body {
     text-align: center;
     width: 100%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: relative;
+    position: fixed;
     top: 0;
     z-index: 1;
 }
-
 
 .dashboard-cards {
     display: flex;
@@ -142,14 +141,8 @@ body {
 
 /* Adjust content margin to account for fixed header */
 .content {
-    margin-top: 160px; /* Increase margin-top to prevent overlap with the header */
-    margin-left: 200px; /* Add margin-left to account for the sidebar */
-    padding: 20px;
-    transition: margin-left 0.3s ease;
-    width: calc(100% - 200px);
-    flex-grow: 1;
+    margin-top: 160px;
 }
-
 
 /* Footer styling */
 .dashboard-footer {

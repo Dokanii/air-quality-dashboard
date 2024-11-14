@@ -17,14 +17,16 @@
     <div class="sidebar" id="sidebar">
         <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
         <nav>
-            <a href="#home">Home</a>
-            <a href="#data">Data</a>
+            <a href="index.html">Home</a>
+            <a href="data_dashboard.html">Data</a>
             <a href="#about">About</a>
         </nav>
     </div>
     
-    <div class="content">
-        <!-- Weather and air quality data will be dynamically added here by JavaScript -->
+    <div class="content" id="content">
+        <div class="chart-container">
+            <canvas id="airQualityChart"></canvas>
+        </div>
     </div>
     
     <footer class="dashboard-footer">
