@@ -76,6 +76,10 @@ body {
     transition: margin-left 0.3s ease;
     width: calc(100% - 200px);
     flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
 }
 
 /* Collapsed styles */
@@ -156,4 +160,33 @@ body {
     position: relative;
     bottom: 0;
     z-index: 1;
+}
+
+/* Chart container styling */
+.chart-container {
+    width: 45%;
+    height: 400px;
+    background: linear-gradient(180deg, #e0f7fa, #b2ebf2); /* Lighter blue to cyan gradient */
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: black;
+}
+
+.chart-small {
+    width: 100%;
+    max-width: 600px;
+    height: 300px;
+}
+
+/* Specific styling for temperature and humidity charts */
+.chart-container.temperature-chart {
+    background: linear-gradient(180deg, #e3f2fd, #bbdefb); /* Lighter blue gradient for temperature */
+}
+
+.chart-container.humidity-chart {
+    background: linear-gradient(180deg, #f3e5f5, #e1bee7); /* Lighter purple gradient for humidity */
 }
