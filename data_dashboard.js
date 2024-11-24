@@ -88,7 +88,7 @@ function showData() {
 function testAPIConnection() {
     const lat = 35.1796;
     const lon = 129.0756;
-    const apiKey = "f45814ecb68f62b6c0df4ba514e80fd2"; // Replace with your actual API key
+    const apiKey = "1a803a28ae8c38748428aa28db6feee6"; // Replace with your actual API key
 
     const weatherAPIURL = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`;
     const airQualityAPIURL = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${apiKey}`;
