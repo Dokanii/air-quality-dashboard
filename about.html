@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Air Quality Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Sidebar Navigation -->
+    <div class="sidebar" id="sidebar">
+        <button class="toggle-btn" onclick="toggleSidebar()">☰</button>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="data_dashboard.html">Data</a>
+            <a href="about.html">About</a>
+        </nav>
+    </div>
+
+    <!-- Header Section -->
+    <header class="main-dashboard-header">
+        <h1>About the Air Quality Monitoring Dashboard</h1>
+        <p>Learn more about this project, its purpose, and the technologies used.</p>
+    </header>
+
+    <!-- Main Content -->
+    <div class="content about-content">
+        <section class="about-section">
+            <h2>Project Overview</h2>
+            <p>This Air Quality Monitoring Dashboard is a web-based application designed to provide real-time data on weather and air quality. The dashboard collects data from the OpenWeather API and visualizes it using interactive charts, making it easier for users to understand the current environmental conditions.</p>
+        </section>
+
+        <section class="about-section">
+            <h2>Purpose</h2>
+            <p>The purpose of this dashboard is to raise awareness of air quality and weather conditions, enabling users to make informed decisions regarding outdoor activities. The project aims to promote environmental consciousness by providing accurate data and easy-to-understand visualizations.</p>
+        </section>
+
+        <section class="about-section">
+            <h2>Technologies Used</h2>
+            <ul>
+                <li><strong>HTML, CSS, JavaScript:</strong> For the front-end development of the dashboard.</li>
+                <li><strong>Chart.js:</strong> A powerful charting library used to create interactive and dynamic charts.</li>
+                <li><strong>OpenWeather API:</strong> Provides real-time weather and air quality data.</li>
+            </ul>
+        </section>
+
+        <section class="about-section">
+            <h2>Future Improvements</h2>
+            <p>We plan to integrate more features in the future, including predictive analytics for air quality trends, a user login system for personalized experiences, and additional data visualization options to enhance the overall usability of the dashboard.</p>
+        </section>
+    </div>
+
+    <!-- Footer Section -->
+    <footer class="main-footer">
+        <p>© 2024 Air Quality Monitoring Dashboard. All rights reserved.</p>
+        <p>Data provided by OpenWeather API.</p>
+    </footer>
+
+    <!-- JavaScript to Toggle Sidebar -->
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById("sidebar");
+            const content = document.querySelector(".content");
+            sidebar.classList.toggle("collapsed");
+            content.classList.toggle("collapsed");
+        }
+    </script>
+</body>
+</html>
