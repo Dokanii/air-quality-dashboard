@@ -12,8 +12,14 @@
 
 <body>
     <header class="main-dashboard-header">
-        <h1>Air Quality Monitoring Dashboard</h1>
-        <p>Real-time data on weather and air quality</p>
+        <div class="title">
+            <h1>Air Quality Monitoring Dashboard</h1>
+            <p>Real-time data on weather and air quality</p>
+        </div>
+        <div class="city-selector">
+            <input type="text" id="cityInput" placeholder="Enter city name">
+            <button onclick="fetchCityData()">Get Data</button>
+        </div>
     </header>    
     
     <div class="sidebar" id="sidebar">

@@ -16,16 +16,22 @@ body {
 
 /* Main dashboard header styling with gradient */
 .main-dashboard-header {
+    position: relative;
     padding: 20px;
-    background: linear-gradient(90deg, #1e3a8a, #00e5ff); /* Gradient from dark blue to cyan */
-    color: linear-gradient(90deg, blue, violet);
-    text-align: center;
+    background: linear-gradient(90deg, #1e3a8a, #00e5ff);
+    color: white;
     width: 100%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    top: 0;
     z-index: 1;
     font-family: 'Poppins', sans-serif;
+    text-align: center; /* Center the title */
+}
+
+.header-content {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .main-dashboard-header h1 {
@@ -158,11 +164,6 @@ body {
     transform: scale(1.05);
 }
 
-/* Adjust content margin to account for fixed header */
-.content {
-    margin-top: 160px;
-}
-
 /* Footer styling */
 .dashboard-footer {
     padding: 20px;
@@ -246,4 +247,38 @@ body {
     text-align: center;
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
+}
+
+.title {
+    display: inline-block;
+    margin: 0 auto; /* Keep the title centered */
+}
+
+.city-selector {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%); /* Align vertically to the middle */
+}
+
+#cityInput {
+    padding: 10px;
+    width: 200px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+}
+
+button {
+    padding: 10px 15px;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #1e40af;
 }

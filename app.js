@@ -6,10 +6,41 @@ function toggleSidebar() {
     content.classList.toggle("collapsed");
 }
 
-// Function to test the API connection
-function testAPIConnection() {
-    const lat = 35.1796;
-    const lon = 129.0756;
+function fetchCityData() {
+    const city = document.getElementById('cityInput').value;
+    const apiKey = "1a803a28ae8c38748428aa28db6feee6"; // Replace with your actual API key
+
+    if (!city) {
+        alert("Please enter a city name.");
+        return;
+    }
+
+    const geocodeAPIURL = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=${apiKey}`;
+
+    fetch(geocodeAPIURL)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error("Geocoding API request failed with status " + response.status);
+            }
+            return response.json();
+        })
+        .then(geocodeData => {
+            if (geocodeData.length === 0) {
+                throw new Error("City not found. Please check the city name and try again.");
+            }
+            const lat = geocodeData[0].lat;
+            const lon = geocodeData[0].lon;
+
+            // Now call the weather API with the new coordinates
+            testAPIConnection(lat, lon);
+        })
+        .catch(error => {
+            console.error("Error fetching city data:", error);
+            alert("Failed to get data for the city. Please check the console for more details.");
+        });
+}
+
+function testAPIConnection(lat, lon) {
     const apiKey = "1a803a28ae8c38748428aa28db6feee6"; // Replace with your actual API key
 
     const weatherAPIURL = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`;
