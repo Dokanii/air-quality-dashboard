@@ -39,6 +39,7 @@ function testAPIConnection() {
             console.log("Air Quality API is working well. Response:", airQualityData);
             if (airQualityData && airQualityData.list && airQualityData.list.length > 0) {
                 displayAirQualityChart(airQualityData);
+                displayPollutantProportionDoughnutChart(airQualityData);
             } else {
                 console.error("Air Quality data is empty or invalid.");
                 alert("Air Quality data is not available at the moment.");
@@ -106,6 +107,61 @@ function displayAirQualityChart(data) {
                     beginAtZero: true
                 }
             }
+        }
+    });
+}
+
+// Function to display doughnut chart for pollutant proportions
+function displayPollutantProportionDoughnutChart(data) {
+    const content = document.querySelector(".content");
+    const chartContainer = document.createElement("div");
+    chartContainer.classList.add("chart-container", "chart-small");
+    chartContainer.innerHTML = `<canvas id="pollutantDoughnutChart"></canvas>`;
+    content.appendChild(chartContainer);
+
+    const ctx = document.getElementById('pollutantDoughnutChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['PM2.5', 'PM10', 'NOx (NO)', 'NO2', 'NH3', 'CO', 'SO2', 'O3'],
+            datasets: [{
+                label: 'Pollutant Proportions',
+                data: [
+                    data.list[0].components.pm2_5 || 0,
+                    data.list[0].components.pm10 || 0,
+                    data.list[0].components.no || 0,
+                    data.list[0].components.no2 || 0,
+                    data.list[0].components.nh3 || 0,
+                    data.list[0].components.co || 0,
+                    data.list[0].components.so2 || 0,
+                    data.list[0].components.o3 || 0
+                ],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.6)',
+                    'rgba(54, 162, 235, 0.6)',
+                    'rgba(255, 206, 86, 0.6)',
+                    'rgba(75, 192, 192, 0.6)',
+                    'rgba(153, 102, 255, 0.6)',
+                    'rgba(255, 159, 64, 0.6)',
+                    'rgba(201, 203, 207, 0.6)',
+                    'rgba(100, 149, 237, 0.6)'
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)',
+                    'rgba(201, 203, 207, 1)',
+                    'rgba(100, 149, 237, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false
         }
     });
 }
@@ -202,3 +258,4 @@ function displayHumidityChart(data) {
 window.onload = function() {
     testAPIConnection();
 };
+
