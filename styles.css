@@ -11,13 +11,14 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: lightblue;
 }
 
 /* Main dashboard header styling with gradient */
 .main-dashboard-header {
     padding: 20px;
     background: linear-gradient(90deg, #1e3a8a, #00e5ff); /* Gradient from dark blue to cyan */
-    color: white;
+    color: linear-gradient(90deg, blue, violet);
     text-align: center;
     width: 100%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -165,7 +166,7 @@ body {
 .dashboard-footer {
     padding: 20px;
     background: #00e5ff; /* Solid cyan background */
-    color: white;
+    color: black;
     text-align: center;
     margin-top: auto;
     width: 100%;
@@ -206,8 +207,8 @@ body {
 
 /* Styling for About Page Content */
 .about-content {
-    padding: 120px 20px 40px 220px; /* Padding accounts for the header and sidebar */
-    background: #f0f4f8;
+    padding: 0px 30px 40px 30px; /* Padding accounts for the header and sidebar */
+    background: lightblue;
     flex-grow: 1;
     overflow-y: auto;
 }
@@ -240,7 +241,7 @@ body {
 .main-footer {
     padding: 20px;
     background: #00e5ff; /* Cyan color for footer */
-    color: white;
+    color: black;
     text-align: center;
     box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
     width: 100%;
