@@ -24,7 +24,11 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     z-index: 1;
     font-family: 'Poppins', sans-serif;
-    text-align: center; /* Center the title */
+    text-align: center; /* Keep the title centered */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Ensure title stays centered */
+    position: relative;
 }
 
 .header-content {
@@ -250,8 +254,7 @@ body {
 }
 
 .title {
-    display: inline-block;
-    margin: 0 auto; /* Keep the title centered */
+    flex-grow: 1;
 }
 
 .city-selector {
@@ -259,6 +262,8 @@ body {
     right: 20px;
     top: 50%;
     transform: translateY(-50%); /* Align vertically to the middle */
+    display: flex;
+    align-items: center;
 }
 
 #cityInput {

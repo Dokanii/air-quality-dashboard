@@ -31,6 +31,10 @@ function fetchCityData() {
             const lat = geocodeData[0].lat;
             const lon = geocodeData[0].lon;
 
+            // Clear content before updating charts to avoid duplication
+            const content = document.querySelector(".content");
+            content.innerHTML = "";
+
             // Now call the weather API with the new coordinates
             testAPIConnection(lat, lon);
         })
