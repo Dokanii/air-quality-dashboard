@@ -291,6 +291,10 @@ function displayHumidityChart(data) {
 
 // Call the testAPIConnection function when the page loads
 window.onload = function() {
-    testAPIConnection();
+    const busanLat = 35.1796;
+    const busanLon = 129.0756;
+
+    // Initialize with Busan coordinates
+    fetchCityData(null, busanLat, busanLon);
 };
 

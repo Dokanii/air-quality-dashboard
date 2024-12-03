@@ -6,6 +6,7 @@ function toggleSidebar() {
     content.classList.toggle("collapsed");
 }
 
+// Function to fetch city data
 function fetchCityData() {
     const city = document.getElementById('cityInput').value;
     const apiKey = "1a803a28ae8c38748428aa28db6feee6"; // Replace with your actual API key
@@ -165,5 +166,9 @@ function testAPIConnection(lat, lon) {
 
 // Show data page content by default if navigated to
 window.onload = function() {
-    showData();
+    const busanLat = 35.1796;
+    const busanLon = 129.0756;
+
+    // Initialize with Busan coordinates
+    fetchCityData(null, busanLat, busanLon);
 };
