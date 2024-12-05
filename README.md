@@ -1,86 +1,68 @@
 # Air Quality Monitoring Dashboard
 
 ## Overview
-The Air Quality Monitoring Dashboard is a web-based application that provides real-time weather and air quality data using the OpenWeather API. The application displays information in the form of charts and dashboards to help visualize temperature, humidity, and air pollution levels.
+
+The Air Quality Monitoring Dashboard is a web-based application that provides real-time information on weather and air quality conditions for cities around the world. It aims to increase awareness of environmental issues and help users make informed decisions regarding outdoor activities.
 
 ## Features
-- Display current weather conditions, including temperature and humidity trends over the past 24 hours.
-- Display air quality data such as PM2.5, PM10, NOx, NO2, NH3, CO, SO2, and O3 levels.
-- Sidebar navigation for navigating between different sections of the application.
-- Responsive charts built using Chart.js for easy visualization of data.
 
-## Technologies and Libraries Used
-- HTML, CSS, and JavaScript for front-end development.
-- [Chart.js](https://www.chartjs.org/) for visualizing data in the form of charts.
-- [OpenWeather API](https://openweathermap.org/api) to retrieve weather and air quality data.
+- **City Search with Auto-Suggestions**: Search for any city and get instant weather and air quality data. The application uses the OpenWeather Geocoding API for dynamic suggestions.
+- **Real-Time Weather Data**: Displays current weather conditions, including temperature, humidity, pressure, and wind information.
+- **Air Quality Monitoring**: Provides air quality index (AQI) values for pollutants like PM2.5, PM10, CO, NOx, NH3, SO2, and O3.
+- **Interactive Charts**: Visualize temperature trends, humidity levels, and air quality data using interactive charts created with Chart.js.
+- **Color-Coded Indicators**: Data containers are color-coded based on pollutant levels to indicate good, moderate, or poor air quality.
 
-## Prerequisites
-- Node.js and npm (to serve the application locally).
-- An API key from OpenWeather API. You will need to replace the placeholder API key with your own to make the application work.
+## Technologies Used
 
-## How to Run the Application
+- **HTML, CSS, JavaScript**: Core technologies used to build the front-end of the dashboard.
+- **Chart.js**: JavaScript library used for data visualization and interactive charts.
+- **OpenWeather API**: Used to retrieve real-time weather and air quality data.
+- **Google Fonts**: Custom fonts to improve the visual appeal of the UI.
+- **Dotenv**: For managing environment variables securely.
 
-1. **Clone the Repository**
-   
-   Clone the repository to your local machine using:
-   ```bash
-   git clone <repository_url>
+## Setup Instructions
+
+1. **Clone the Repository**:
+
+   ```sh
+   git clone <repository-url>
    ```
 
-2. **Install Dependencies**
-   
-   Navigate to the project directory and install any dependencies if required:
-   ```bash
-   cd air-quality-dashboard
+2. **Navigate to the Project Directory**:
+
+   ```sh
+   cd air-quality-monitoring-dashboard
+   ```
+
+3. **Install Dependencies**:
+   Make sure you have **Node.js** installed, then run:
+
+   ```sh
    npm install
    ```
 
-3. **Configure API Key**
-   
-   Obtain an API key from [OpenWeather API](https://openweathermap.org/api) and replace the placeholder in the `app.js` and `data_dashboard.js` files:
-   ```javascript
-   const apiKey = "YOUR_API_KEY_HERE";
+4. **Create Environment File**: Create a file named `.env` in the root directory to store your API key:
+
+   ```env
+   API_KEY="YOUR_API_KEY"
    ```
 
-4. **Serve the Application**
-   
-   To run the application locally, you can use a simple HTTP server. You can install and use the `http-server` package:
-   ```bash
-   npm install -g http-server
-   http-server
-   ```
+5. **Run the Application**:
+   Open `index.html` in your browser to view the application.
 
-   The application will be available at `http://localhost:8080` or the port indicated in the terminal.
+## Usage
 
-5. **Open in Browser**
-   
-   Open your web browser and navigate to `http://localhost:8080` to use the dashboard.
+- Open the application in a browser.
+- Use the search bar to enter the city name.
+- Select from the auto-suggestions to get real-time weather and air quality data.
+- Charts are updated dynamically to visualize temperature, humidity, and air pollutant levels.
 
-## Simulation Process
-The application retrieves weather and air quality data through API calls to the OpenWeather API. The data includes temperature, humidity, and pollutant levels. This data is displayed using Chart.js in three main types of charts:
+## Future Improvements
 
-- **Temperature Chart**: Displays temperature trends over the last 24 hours.
-- **Humidity Chart**: Displays humidity trends over the last 24 hours.
-- **Air Quality Chart**: Displays the current levels of air pollutants (e.g., PM2.5, NO2, etc.).
-
-The data is refreshed each time the page is loaded, and the charts are dynamically generated to show the most recent information available.
-
-## File Structure
-- **index.html**: The main HTML file for the application.
-- **styles.css**: Contains the styles for the layout, sidebar, and charts.
-- **app.js**: The JavaScript file for managing the main dashboard functionalities, including API requests and chart rendering.
-- **data_dashboard.html**: The HTML file for displaying data-related dashboards.
-- **data_dashboard.js**: Manages the data visualization for the data-specific section of the application.
-
-## Libraries Used
-- **Chart.js**: A JavaScript library used to generate charts for data visualization.
-- **OpenWeather API**: Used to get weather and air quality data.
-
-## Troubleshooting
-- Ensure that you have a valid API key from OpenWeather.
-- Make sure the API key is correctly placed in the JavaScript files.
-- If the application does not load properly, verify your network connection and check the browser console for error messages.
+- **User Authentication**: Add a user login system for saving preferred cities.
+- **Predictive Analytics**: Use historical data to predict future air quality trends.
+- **Mobile Optimization**: Enhance the user interface for a better mobile experience.
 
 ## License
-This project is licensed under the MIT License.
 
+This project is licensed under the MIT License.
