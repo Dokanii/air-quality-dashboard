@@ -134,12 +134,12 @@ function testAPIConnection(lat, lon) {
             return response.json();
         })
         .then(weatherData => {
-            document.getElementById("temperature").innerText = (weatherData.current.temp - 273.15).toFixed(2) + " °C";
-            document.getElementById("feels_like").innerText = (weatherData.current.feels_like - 273.15).toFixed(2) + " °C";
-            document.getElementById("humidity").innerText = weatherData.current.humidity + "%";
-            document.getElementById("pressure").innerText = weatherData.current.pressure + " hPa";
-            document.getElementById("wind_speed").innerText = weatherData.current.wind_speed + " m/s";
-            document.getElementById("wind_deg").innerText = weatherData.current.wind_deg + "°";
+            updateDataContainer("temperature", (weatherData.current.temp - 273.15).toFixed(2) + " °C", weatherData.current.temp - 273.15);
+            updateDataContainer("feels_like", (weatherData.current.feels_like - 273.15).toFixed(2) + " °C", weatherData.current.feels_like - 273.15);
+            updateDataContainer("humidity", weatherData.current.humidity + "%", weatherData.current.humidity);
+            updateDataContainer("pressure", weatherData.current.pressure + " hPa", weatherData.current.pressure);
+            updateDataContainer("wind_speed", weatherData.current.wind_speed + " m/s", weatherData.current.wind_speed);
+            updateDataContainer("wind_deg", weatherData.current.wind_deg + "°", weatherData.current.wind_deg);
             return fetch(airQualityAPIURL);
         })
         .then(response => {
@@ -149,19 +149,59 @@ function testAPIConnection(lat, lon) {
             return response.json();
         })
         .then(airQualityData => {
-            document.getElementById("pm25").innerText = airQualityData.list[0].components.pm2_5 + " µg/m³";
-            document.getElementById("pm10").innerText = airQualityData.list[0].components.pm10 + " µg/m³";
-            document.getElementById("nox").innerText = airQualityData.list[0].components.no + " ppb";
-            document.getElementById("no2").innerText = airQualityData.list[0].components.no2 + " ppb";
-            document.getElementById("nh3").innerText = airQualityData.list[0].components.nh3 + " ppb";
-            document.getElementById("co").innerText = airQualityData.list[0].components.co + " ppm";
-            document.getElementById("so2").innerText = airQualityData.list[0].components.so2 + " ppb";
-            document.getElementById("o3").innerText = airQualityData.list[0].components.o3 + " ppb";
+            updateDataContainer("pm25", airQualityData.list[0].components.pm2_5 + " µg/m³", airQualityData.list[0].components.pm2_5);
+            updateDataContainer("pm10", airQualityData.list[0].components.pm10 + " µg/m³", airQualityData.list[0].components.pm10);
+            updateDataContainer("nox", airQualityData.list[0].components.no + " ppb", airQualityData.list[0].components.no);
+            updateDataContainer("no2", airQualityData.list[0].components.no2 + " ppb", airQualityData.list[0].components.no2);
+            updateDataContainer("nh3", airQualityData.list[0].components.nh3 + " ppb", airQualityData.list[0].components.nh3);
+            updateDataContainer("co", airQualityData.list[0].components.co + " ppm", airQualityData.list[0].components.co);
+            updateDataContainer("so2", airQualityData.list[0].components.so2 + " ppb", airQualityData.list[0].components.so2);
+            updateDataContainer("o3", airQualityData.list[0].components.o3 + " ppb", airQualityData.list[0].components.o3);
         })
         .catch(error => {
             console.error("Error testing API:", error);
             alert("API request failed. Please check the console for more details.");
         });
+}
+
+// Function to update data containers and set the background color based on value
+function updateDataContainer(elementId, value, numericValue) {
+    const element = document.getElementById(elementId);
+    element.innerText = value;
+
+    // Set background color based on thresholds
+    let color = "green"; // Default to "good"
+    
+    if (elementId === "pm25" || elementId === "pm10" || elementId === "nox" || elementId === "no2" || elementId === "nh3" || elementId === "co" || elementId === "so2" || elementId === "o3") {
+        // Air Quality thresholds (adjust as needed)
+        if (numericValue > 150) {
+            color = "red"; // Bad
+        } else if (numericValue > 75) {
+            color = "yellow"; // Moderate
+        } else {
+            color = "green"; // Good
+        }
+    } else if (elementId === "temperature" || elementId === "feels_like") {
+        // Temperature thresholds (adjust as needed)
+        if (numericValue > 30) {
+            color = "red"; // Hot
+        } else if (numericValue < 0) {
+            color = "blue"; // Cold
+        } else {
+            color = "yellow"; // Moderate
+        }
+    } else if (elementId === "humidity") {
+        // Humidity thresholds
+        if (numericValue > 70) {
+            color = "red"; // Too humid
+        } else if (numericValue < 30) {
+            color = "blue"; // Too dry
+        } else {
+            color = "green"; // Comfortable
+        }
+    }
+
+    element.parentElement.style.backgroundColor = color;
 }
 
 // Show data page content by default if navigated to

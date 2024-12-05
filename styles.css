@@ -154,14 +154,13 @@ body {
 }
 
 .card {
-    background: linear-gradient(180deg, #6a11cb, #2575fc);
     color: white;
     padding: 20px;
     border-radius: 10px;
     width: 200px;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
+    transition: transform 0.3s, background-color 0.3s; /* Add background-color transition */
 }
 
 .card:hover {
