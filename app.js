@@ -1,3 +1,7 @@
+require('dotenv').config({ path: 'key.env' });
+
+const apiKey = process.env.OPENWEATHER_API_KEY;
+
 // Function to toggle the sidebar visibility
 function toggleSidebar() {
     const sidebar = document.getElementById("sidebar");
@@ -8,7 +12,6 @@ function toggleSidebar() {
 
 function fetchCityData() {
     const city = document.getElementById('cityInput').value;
-    const apiKey = "1a803a28ae8c38748428aa28db6feee6"; // Replace with your actual API key
 
     if (!city) {
         alert("Please enter a city name.");
@@ -45,7 +48,6 @@ function fetchCityData() {
 }
 
 function testAPIConnection(lat, lon) {
-    const apiKey = "1a803a28ae8c38748428aa28db6feee6"; // Replace with your actual API key
 
     const weatherAPIURL = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}`;
     const airQualityAPIURL = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${apiKey}`;
