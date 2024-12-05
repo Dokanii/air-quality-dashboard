@@ -1,4 +1,4 @@
-require('dotenv').config({ path: 'key.env' });
+require('dotenv').config();
 
 const apiKey = process.env.OPENWEATHER_API_KEY;
 
