@@ -40,7 +40,6 @@ function fetchCityData() {
         })
         .catch(error => {
             console.error("Error fetching city data:", error);
-            alert("Failed to get data for the city. Please check the console for more details.");
         });
 }
 
@@ -162,7 +161,6 @@ function testAPIConnection(lat, lon) {
         })
         .catch(error => {
             console.error("Error testing API:", error);
-            alert("API request failed. Please check the console for more details.");
         });
 }
 

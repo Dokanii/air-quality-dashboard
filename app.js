@@ -43,7 +43,6 @@ function fetchCityData() {
         })
         .catch(error => {
             console.error("Error fetching city data:", error);
-            alert("Failed to get data for the city. Please check the console for more details.");
         });
 }
 
@@ -61,7 +60,6 @@ function testAPIConnection(lat, lon) {
         })
         .then(weatherData => {
             console.log("Weather API is working well. Response:", weatherData);
-            alert("Weather API is working well!");
             displayTemperatureChart(weatherData);
             displayHumidityChart(weatherData);
             return fetch(airQualityAPIURL);
@@ -79,12 +77,10 @@ function testAPIConnection(lat, lon) {
                 displayPollutantProportionDoughnutChart(airQualityData);
             } else {
                 console.error("Air Quality data is empty or invalid.");
-                alert("Air Quality data is not available at the moment.");
             }
         })
         .catch(error => {
             console.error("Error testing API:", error);
-            alert("API request failed. Please check the console for more details.");
         });
 }
 
